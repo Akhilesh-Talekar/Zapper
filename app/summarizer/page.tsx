@@ -1,4 +1,5 @@
 import { BackgroundGradient } from "@/components/ui/background-gradient"
+import { EncryptedText } from "@/components/ui/encrypted-text"
 import { KeyRound, NotepadText, Timer, Zap } from "lucide-react"
 
 const perks = [
@@ -24,7 +25,13 @@ const page = () => {
         <div className='h-full flex flex-col items-center justify-around bg-black'>
             <div className='flex flex-col items-center'>
                 <h2 className='text-4xl font-bold mb-4 text-[#BEA2E7] drop-shadow-[0_0_15px_rgba(190,162,231,0.7)]'>Youtube Summarizer</h2>
-                <p className='text-white max-w-2xl text-center px-4'>Paste a YouTube video link below to generate a concise summary of its content. Perfect for quickly understanding lengthy videos!</p>
+                <p className='text-white max-w-2xl text-center px-4'>
+                    < EncryptedText
+                        text="Paste a YouTube video link below to generate a concise summary of its content. Perfect for quickly understanding lengthy videos!"
+                        encryptedClassName="text-neutral-500"
+                        revealedClassName="text-white"
+                        revealDelayMs={50}
+                    /></p>
             </div>
             <div className="group flex w-full max-w-2xl items-center gap-2 rounded-full border-2 border-white/10 bg-[#0A0A0A] p-2 transition-all duration-300 ease-in-outhover:border-purple-500/50 focus-within:border-purple-500 focus-within:shadow-[0_0_30px_-5px_rgba(168,85,247,0.6)]">
                 {/* Input Field */}
@@ -60,4 +67,5 @@ const page = () => {
 }
 
 export default page
+
 
