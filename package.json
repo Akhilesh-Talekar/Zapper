@@ -12,6 +12,8 @@
     "@tabler/icons-react": "^3.36.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "jspdf": "^3.0.4",
+    "jspdf-autotable": "^5.0.2",
     "lucide-react": "^0.561.0",
     "motion": "^12.23.26",
     "next": "16.0.10",
