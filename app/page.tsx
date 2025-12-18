@@ -1,7 +1,7 @@
-import { BackgroundGradient } from "@/components/BackgroundGradient";
+import { WavyBackgroundDemo } from "@/components/WavyBackgroungDemo";
 
 export default function Home() {
   return (
-    <BackgroundGradient />
+    <WavyBackgroundDemo />
   );
 }
