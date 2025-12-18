@@ -10,17 +10,29 @@ export function getVideoId(input: string) {
   try {
     const url = new URL(input);
 
-    if (url.hostname.includes("youtube.com")) {
-      return url.searchParams.get("v");
-    }
-
+    // youtu.be/{id}
     if (url.hostname.includes("youtu.be")) {
       return url.pathname.slice(1);
     }
 
-    return input; // already an ID
+    // youtube.com
+    if (url.hostname.includes("youtube.com")) {
+      // watch?v={id}
+      const v = url.searchParams.get("v");
+      if (v) return v;
+
+      // shorts/{id}
+      const shortsMatch = url.pathname.match(/\/shorts\/([^/?]+)/);
+      if (shortsMatch) return shortsMatch[1];
+
+      // embed/{id}
+      const embedMatch = url.pathname.match(/\/embed\/([^/?]+)/);
+      if (embedMatch) return embedMatch[1];
+    }
+
+    return input; // assume already a video ID
   } catch {
-    return input;
+    return input; // fallback if input is not a URL
   }
 }
 
